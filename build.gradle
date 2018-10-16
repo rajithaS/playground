@@ -1,0 +1,34 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    apply from: 'dependencies.gradle'
+
+    ext.kotlin_version = '1.2.61'
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath libraries.gradle
+        classpath libraries.googlePlayServices
+        classpath libraries.kotlinPlugin
+        classpath libraries.r8
+
+
+    }
+
+
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

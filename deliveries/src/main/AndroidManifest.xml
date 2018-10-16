@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.rs.deliveries">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application>
+        <activity
+                android:name="com.rs.deliveries.presentation.screens.list.DeliveryListActivity"
+                android:label="@string/title_activity_delivery_list"
+                android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+                android:name=".presentation.screens.details.DeliveryDetailsActivity"
+                android:label="@string/delivery_details"
+                android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>

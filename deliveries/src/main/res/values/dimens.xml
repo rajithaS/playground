@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="space_5">5dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="imageview_size">120dp</dimen>
+    <dimen name="listitem_image_size">60dp</dimen>
+    <dimen name="default_elevation">2dp</dimen>
+</resources>

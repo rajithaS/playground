@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.screens.list.DeliveryListActivity">
+
+    <android.support.design.widget.AppBarLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:gravity="center"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.constraint.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:id="@+id/content"
+            android:layout_height="match_parent">
+
+        <FrameLayout
+                android:id="@+id/mapContainer"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/image"
+                tools:background="@tools:sample/backgrounds/scenic"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
+        <com.rs.imageloader.ImageView
+                app:roundingBorderPadding="2dp"
+                android:id="@+id/image"
+                tools:background="@tools:sample/backgrounds/scenic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/mapContainer"
+                android:layout_width="@dimen/imageview_size"
+                android:layout_height="@dimen/imageview_size"/>
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/description"
+                android:padding="@dimen/space_8"
+                android:background="@android:color/white"
+                app:layout_constraintTop_toTopOf="@id/image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Test Content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.widget.CoordinatorLayout>
