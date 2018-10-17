@@ -14,11 +14,7 @@ buildscript {
         classpath libraries.googlePlayServices
         classpath libraries.kotlinPlugin
         classpath libraries.r8
-
-
     }
-
-
 }
 
 allprojects {

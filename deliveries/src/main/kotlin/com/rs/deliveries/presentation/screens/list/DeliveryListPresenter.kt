@@ -30,11 +30,13 @@ class DeliveryListPresenter(
 
     fun load() {
         ifViewAttached { view ->
-            if (networkInspector.isConnected()) {
-                loadFromNetwork(deliveryListViewModel.currentOffset, LIMIT)
-            } else {
-                loadFromCache()
-                view.showError("Please check your internet connection...")
+            when {
+                networkInspector.isConnected() -> loadFromNetwork(deliveryListViewModel.currentOffset, LIMIT)
+                hasNoData() -> {
+                    loadFromCache()
+                    view.showError("Please check your internet connection...")
+                }
+                else -> view.hideLowerProgress()
             }
         }
     }
@@ -51,12 +53,13 @@ class DeliveryListPresenter(
     private fun handleNetworkLoadError() {
         ifViewAttached {
             it.hideLowerProgress()
-            val isInitialCall = deliveryListViewModel.currentOffset == 0
-            if (isInitialCall) {
+            if (hasNoData()) {
                 loadFromCache()
             }
         }
     }
+
+    private fun hasNoData() = deliveryListViewModel.currentOffset == 0
 
     private fun loadFromCache() {
         compositeSubscription.add(
